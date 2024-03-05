@@ -1,0 +1,217 @@
+.nav-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: .25rem;
+    background: #00000099;
+    font-size: 13px;
+    height: 3rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: .5rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger-logo-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    min-width: 0;
+    height: 100%;
+}
+
+.hamburger {
+    background: none;
+    border-radius: .25rem;
+    min-height: 40px;
+    padding: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    min-width: 0;
+    position: relative;
+    white-space: nowrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    touch-action: manipulation;
+    border: none;
+}
+
+.hamburger img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-self: stretch;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    min-width: 0;
+    min-height: 40px;
+    padding: 0 1rem;
+    position: relative;
+    white-space: nowrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    touch-action: manipulation;
+}
+
+.logo a img {
+    height: 2rem;
+}
+
+.searchBox {
+    display: flex;
+    max-width: 230px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #2f3640;
+    border-radius: 50px;
+    position: relative;
+}
+
+.searchButton {
+    color: white;
+    position: absolute;
+    right: 8px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #FA3343;
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.searchButton img {
+    width: 14px;
+    height: 14px;
+}
+
+.searchButton:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
+}
+
+.searchButton:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    padding: 6px 23px 6px 23px;
+}
+
+.user-profile {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    min-width: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 20%;
+}
+
+.seperator {
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.line {
+    height: 70%;
+    width: 1px;
+    background-color: #ffffff1a;
+    display: block;
+}
+
+.notification {
+    background: none;
+    border: 0;
+    border-radius: 30%;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.notification svg {
+    height: 1.5rem;
+    color: #fff;
+}
+
+.notification svg:hover {
+    color: #FA3343;
+    transform: translateY(-3px);
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.login {
+    position: relative;
+    font-family: Helvetica, "sans-serif";
+    font-size: 13px;
+    transition: all .2s;
+    padding: 1px 5px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    background-color: #FA3343;
+}
+
+.login:hover {
+    color: #fff;
+}
+
+.login > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform .3s ease-in-out;
+}
+
+.login:hover > svg {
+    transform: translateX(5px);
+}
+
+.login:active {
+    transform: scale(0.95);
+}

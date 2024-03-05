@@ -7,6 +7,15 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+button {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}
+
 .App {
   text-align: center;
 }

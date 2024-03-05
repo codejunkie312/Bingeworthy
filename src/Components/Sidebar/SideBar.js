@@ -1,46 +1,49 @@
 import './SideBar.css'
-import homelogo from './home.png'
-import watchlistlogo from './watchlist.png'
-import movieslogo from './movies.png'
+import homelogo from './images/home.png'
+import watchlistlogo from './images/watchlist.png'
+import movieslogo from './images/movies.png'
+import tvshowslogo from './images/tvshow.png'
 
 const SideBar = () => {
   return (
-    <nav className="sidebar">
-      <ul>
-        <li>
-          <a href="#" id='home'>
+    <div className="sidebar-container">
+      <nav className="sidebar">
+        <ul>
+          <li>
+            <a href="#" id='home'>
+              <div className="icon">
+                <img src={homelogo} alt='home' />
+              </div>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" id='watchlist'>
+              <div className="icon">
+                <img src={watchlistlogo} alt='bookmark' />
+              </div>
+              Watchlist
+            </a>
+          </li>
+          <li>
+            <a href="#" id='movies'>
             <div className="icon">
-              <img src={homelogo} alt='home' />
+                <img src={movieslogo} alt='movies' />
             </div>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" id='watchlist'>
-            <div className="icon">
-              <img src={watchlistlogo} alt='home' />
-            </div>
-            Watchlist
-          </a>
-        </li>
-        <li>
-          <a href="#" id='movies'>
-          <div className="icon">
-              <img src={movieslogo} alt='home' />
-          </div>
-            Movies
-          </a>
-        </li>
-        <li>
-          <a href="#" id='tvshows'>
-            <div className="icon">
-              <img src={movieslogo} alt='home' />
-            </div>
-            TV Shows
-          </a>
-        </li>
-      </ul>
-    </nav>
+              Movies
+            </a>
+          </li>
+          <li>
+            <a href="#" id='tvshows'>
+              <div className="icon">
+                <img src={tvshowslogo} alt='tvshows' />
+              </div>
+              TV Shows
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 }
 
