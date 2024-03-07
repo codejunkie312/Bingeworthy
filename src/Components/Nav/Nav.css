@@ -196,6 +196,7 @@
     display: flex;
     align-items: center;
     background-color: #FA3343;
+    height: 30px;
 }
 
 .login:hover {
