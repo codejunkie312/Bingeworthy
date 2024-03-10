@@ -1,12 +1,13 @@
-import './SideBar.css'
-import homelogo from './images/home.png'
-import watchlistlogo from './images/watchlist.png'
-import movieslogo from './images/movies.png'
-import tvshowslogo from './images/tvshow.png'
+import './SideBar.css';
+import homelogo from './images/home.png';
+import watchlistlogo from './images/watchlist.png';
+import movieslogo from './images/movies.png';
+import tvshowslogo from './images/tvshow.png';
+import { useState } from 'react';
 
-const SideBar = () => {
+const SideBar = (props) => {
   return (
-    <div className="sidebar-container">
+    <div className={`sidebar-container${props.isActive ? ' active' : ''}`}>
       <nav className="sidebar">
         <ul>
           <li>

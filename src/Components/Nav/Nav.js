@@ -1,17 +1,18 @@
-import './Nav.css'
-import hamburgerlogo from './images/hamburger.png'
-import logo from './images/logo.png'
-import searchlogo from './images/search.png'
-import notificationlogo from './images/notification.png'
-// import user from './images/user.png'
-// import login from './images/login.png'
+import './Nav.css';
+import hamburgerlogo from './images/hamburger.png';
+import logo from './images/logo.png';
+import searchlogo from './images/search.png';
+import notificationlogo from './images/notification.png';
+import { useState } from 'react';
+// import user from './images/user.png';
+// import login from './images/login.png';
 
 const Nav = (props) => {
     return (
         <div className='nav-container'>
             <nav className='nav'>
                 <div className='hamburger-logo-search'>
-                    <button className='hamburger'>
+                    <button className='hamburger' onClick={props.handleClick}>
                         <img src={hamburgerlogo} alt='sidebar-toggle' />
                     </button>
                     <div className='logo'>
