@@ -1,5 +1,6 @@
 import SideBar from '../Sidebar/SideBar';
 import Nav from '../Nav/Nav';
+import MovieContainer from '../MovieContainer/MovieContainer';
 import './App.css';
 import { useState } from 'react';
 
@@ -13,6 +14,7 @@ function App() {
       <div className="App-container">
         <Nav isLoggedIn={false} handleClick={handleClick}/>
         <SideBar isActive={isActive}/>
+        <MovieContainer />
       </div>
     </div>
   );

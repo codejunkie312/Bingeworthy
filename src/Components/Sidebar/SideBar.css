@@ -1,12 +1,13 @@
 .sidebar-container {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 0;
     bottom: 0;
     width: 60px;
     transition: all .5s;
+    z-index: 1000;
 }
 
 .sidebar-container.active {
@@ -20,7 +21,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, .15);
+    background-color: rgba(23, 23, 23);
     border-radius: 4px;
     height: calc(100% - 8px);
     margin: 0 0 8px 8px;

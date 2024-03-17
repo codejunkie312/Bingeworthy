@@ -3,7 +3,6 @@ import homelogo from './images/home.png';
 import watchlistlogo from './images/watchlist.png';
 import movieslogo from './images/movies.png';
 import tvshowslogo from './images/tvshow.png';
-import { useState } from 'react';
 
 const SideBar = (props) => {
   return (
