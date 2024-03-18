@@ -1,7 +1,16 @@
 import './MovieContainer.css';
-import { fetchImage } from '../../utils/MoviedbAPI/tmdb';
+import { useState, useEffect } from 'react';
+import { fetchImage, topMovies } from '../../utils/MoviedbAPI/tmdb';
 
 const MovieContainer = () => {
+    const [movies, setMovies] = useState([]);
+    useEffect(() => {
+        topMovies()
+            .then(data => {
+                setMovies(data);
+            })
+            .catch(err => console.log(err));
+    }, []);
     return (
         <div className='content'>
             <div className='movie-container'>
@@ -9,54 +18,16 @@ const MovieContainer = () => {
                 <div className='horizontal-title-list'>
                     <div className='hidden-horizontal-scrollbar'>
                         <div className='hidden-horizontal-scrollbar-items'>
-                            <div className='hidden-horizontal-scrollbar-item'>
-                                <a>
-                                    <div className='movie-poster'>
-                                        <div className='quick-actions'></div>
-                                        <img src={fetchImage('/1E5baAaEse26fej7uHcjOgEE2t2.jpg')} alt="movie Poster"></img>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className='hidden-horizontal-scrollbar-item'>
-                                <a>
-                                    <div className='movie-poster'>
-                                        <div className='quick-actions'></div>
-                                        <img src={fetchImage('/1E5baAaEse26fej7uHcjOgEE2t2.jpg')} alt="movie Poster"></img>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className='hidden-horizontal-scrollbar-item'>
-                                <a>
-                                    <div className='movie-poster'>
-                                        <div className='quick-actions'></div>
-                                        <img src={fetchImage('/1E5baAaEse26fej7uHcjOgEE2t2.jpg')} alt="movie Poster"></img>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className='hidden-horizontal-scrollbar-item'>
-                                <a>
-                                    <div className='movie-poster'>
-                                        <div className='quick-actions'></div>
-                                        <img src={fetchImage('/1E5baAaEse26fej7uHcjOgEE2t2.jpg')} alt="movie Poster"></img>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className='hidden-horizontal-scrollbar-item'>
-                                <a>
-                                    <div className='movie-poster'>
-                                        <div className='quick-actions'></div>
-                                        <img src={fetchImage('/1E5baAaEse26fej7uHcjOgEE2t2.jpg')} alt="movie Poster"></img>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className='hidden-horizontal-scrollbar-item'>
-                                <a>
-                                    <div className='movie-poster'>
-                                        <div className='quick-actions'></div>
-                                        <img src={fetchImage('/1E5baAaEse26fej7uHcjOgEE2t2.jpg')} alt="movie Poster"></img>
-                                    </div>
-                                </a>
-                            </div>
+                            {movies.map(movie => (
+                                <div className='hidden-horizontal-scrollbar-item' key={movie.id}>
+                                    <a>
+                                        <div className='movie-poster'>
+                                            <div className='quick-actions'></div>
+                                            <img src={fetchImage(movie.poster_path)} alt="movie Poster"></img>
+                                        </div>
+                                    </a>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
