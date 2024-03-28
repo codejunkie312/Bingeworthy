@@ -1,0 +1,41 @@
+.container-filter {
+    display: flex;
+    border-radius: 80px;
+    background-color: #fa33442b;
+    position: absolute;
+    top: 65px;
+    left: 70px;
+    padding-left: 10px;
+    height: 30px;
+    align-items: center;
+}
+
+.container-filter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width : fit-content;
+    display: flex;
+    
+}
+
+.container-filter li a {
+    position: relative;
+    padding: 8px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: aliceblue;
+    background-color: ;
+}
+
+.container-filter li a:hover {
+    background-color: #fa334487;
+    border-radius: 80px;
+}
+
+.container-filter li a.active {
+    background-color: #fa3344;
+    border-radius: 80px;
+}

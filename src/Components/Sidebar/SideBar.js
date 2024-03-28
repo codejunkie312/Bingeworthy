@@ -3,6 +3,7 @@ import homelogo from './images/home.png';
 import watchlistlogo from './images/watchlist.png';
 import movieslogo from './images/movies.png';
 import tvshowslogo from './images/tvshow.png';
+import { Link } from 'react-router-dom';
 
 const SideBar = (props) => {
   return (
@@ -10,20 +11,20 @@ const SideBar = (props) => {
       <nav className="sidebar">
         <ul>
           <li>
-            <a href="#" id='home'>
+            <Link to="/" id='home'>
               <div className="icon">
                 <img src={homelogo} alt='home' />
               </div>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" id='watchlist'>
+            <Link to="/watchlist" id='watchlist'>
               <div className="icon">
                 <img src={watchlistlogo} alt='bookmark' />
               </div>
               Watchlist
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#" id='movies'>

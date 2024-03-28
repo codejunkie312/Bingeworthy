@@ -1,13 +1,30 @@
 import './MovieContainer.css';
+import MovieCard from '../MovieCard/MovieCard';
 import { useState, useEffect } from 'react';
-import { fetchImage, topMovies } from '../../utils/MoviedbAPI/tmdb';
+import { topMovies, topTvShows, fetchRandomGenre } from '../../utils/MoviedbAPI/tmdb';
 
-const MovieContainer = () => {
-    const [movies, setMovies] = useState([]);
+const MovieContainer = ({ watchlist, sessionId, user }) => {
+    const [popularMovies, setPopularMovies] = useState([]);
+    const [popularTvShows, setPopularTvShows] = useState([]);
+    const [randomMovies, setRandomMovies] = useState([{
+        genre: '',
+        movies: []
+    }]);
+    
     useEffect(() => {
         topMovies()
             .then(data => {
-                setMovies(data);
+                setPopularMovies(data);
+            })
+            .catch(err => console.log(err));
+        topTvShows()
+            .then(data => {
+                setPopularTvShows(data);
+            })
+            .catch(err => console.log(err));
+        fetchRandomGenre()
+            .then(data => {
+                setRandomMovies(data);
             })
             .catch(err => console.log(err));
     }, []);
@@ -18,20 +35,39 @@ const MovieContainer = () => {
                 <div className='horizontal-title-list'>
                     <div className='hidden-horizontal-scrollbar'>
                         <div className='hidden-horizontal-scrollbar-items'>
-                            {movies.map(movie => (
-                                <div className='hidden-horizontal-scrollbar-item' key={movie.id}>
-                                    <a>
-                                        <div className='movie-poster'>
-                                            <div className='quick-actions'></div>
-                                            <img src={fetchImage(movie.poster_path)} alt="movie Poster"></img>
-                                        </div>
-                                    </a>
-                                </div>
+                            {popularMovies.map(movie => (
+                                <MovieCard movie={movie} watchlist={watchlist} user={user} sessionId={sessionId} type='movie'/>
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
+            <div className='movie-container'>
+                <h1>Top TV Shows</h1>
+                <div className='horizontal-title-list'>
+                    <div className='hidden-horizontal-scrollbar'>
+                        <div className='hidden-horizontal-scrollbar-items'>
+                            {popularTvShows.map(movie => (
+                                <MovieCard movie={movie} watchlist={watchlist} user={user} sessionId={sessionId} type='tv'/>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {randomMovies.map(item => (
+                <div className='movie-container'>
+                    <h1>Top {item.genre} Movies</h1>
+                    <div className='horizontal-title-list'>
+                        <div className='hidden-horizontal-scrollbar'>
+                            <div className='hidden-horizontal-scrollbar-items'>
+                                {item.movies.map(movie => (
+                                    <MovieCard movie={movie} watchlist={watchlist} user={user} sessionId={sessionId} type='movie'/>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }

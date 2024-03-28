@@ -2,12 +2,30 @@ import './Nav.css';
 import hamburgerlogo from './images/hamburger.png';
 import logo from './images/logo.png';
 import searchlogo from './images/search.png';
-import notificationlogo from './images/notification.png';
+import { authenticate } from '../../utils/MoviedbAPI/tmdb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 // import user from './images/user.png';
 // import login from './images/login.png';
 
 const Nav = (props) => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleClick = () => {
+        authenticate();
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('session_id');
+        localStorage.removeItem('expires');
+        localStorage.removeItem('user_id');
+    };
     return (
         <div className='nav-container'>
             <nav className='nav'>
@@ -39,11 +57,20 @@ const Nav = (props) => {
                     </button>
                     <div className='user-login'>
                     {props.isLoggedIn ? (
-                        <button className='user'>
-                            <img src='/images/user.png' alt='user' />
-                        </button>
+                        <div className='user'>
+                            <button onClick={toggleDropdown}>
+                                <FontAwesomeIcon className='faUser' icon={faUser} />
+                            </button>
+                            {isDropdownOpen && (
+                                <div className='user-dropdown'>
+                                    <a href='/'>Profile</a>
+                                    <a href='/'>Watchlist</a>
+                                    <a href='/' onClick={handleLogout}>Logout</a>
+                                </div>
+                            )}
+                        </div>
                     ) : (
-                        <button className='login' alt='login'>
+                        <button className='login' alt='login' onClick={handleClick}>
                             <span>Login</span>
                             <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="37" cy="37" r="35.5" stroke="black" stroke-width="3"></circle>
